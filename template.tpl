@@ -72,6 +72,9 @@ const log = require('logToConsole');
 const queryPermission = require('queryPermission');
 const setDefaultConsentState = require('setDefaultConsentState');
 
+// ConsentAlly's developer ID in Google's CMP Partner Program, set before the defaults, as the
+// install tag does (its write_data_layer permission names it).
+const DEVELOPER_ID_FIELD = 'developer_id.dY2MxZT';
 // ConsentAlly's edge, the only host this template loads from (its inject_script permission).
 const EDGE = 'https://edge.consentally.com';
 // How long Google tags wait for the banner's consent update, as on the install tag.
@@ -87,8 +90,10 @@ const isStoreKey = (key) => {
   return true;
 };
 
-// The defaults first, whatever happens next: every type denied but security, the same state the
-// install tag sets before any choice. The banner's update replaces them once it has decided.
+// The developer ID and the defaults first, whatever happens next: every type denied but security,
+// the same state the install tag sets before any choice. The banner's update replaces them once
+// it has decided.
+gtagSet(DEVELOPER_ID_FIELD, true);
 setDefaultConsentState({
   ad_storage: 'denied',
   ad_user_data: 'denied',
@@ -392,6 +397,10 @@ ___WEB_PERMISSIONS___
             "listItem": [
               {
                 "type": 1,
+                "string": "developer_id.dY2MxZT"
+              },
+              {
+                "type": 1,
                 "string": "ads_data_redaction"
               },
               {
@@ -444,6 +453,7 @@ scenarios:
   code: |-
     runCode(mockData);
 
+    assertApi('gtagSet').wasCalledWith('developer_id.dY2MxZT', true);
     assertApi('setDefaultConsentState').wasCalledWith({
       ad_storage: 'denied',
       ad_user_data: 'denied',

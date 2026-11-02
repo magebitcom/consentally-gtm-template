@@ -11,7 +11,8 @@ Full guide: https://consentally.com/docs/google-tag-manager
 
 ## What the tag does
 
-1. Sets the Consent Mode defaults with `setDefaultConsentState`: `ad_storage`, `ad_user_data`,
+1. Sets ConsentAlly's Google developer ID (`developer_id.dY2MxZT`), then the Consent Mode
+   defaults with `setDefaultConsentState`: `ad_storage`, `ad_user_data`,
    `ad_personalization`, `analytics_storage`, `functionality_storage` and
    `personalization_storage` denied, `security_storage` granted, `wait_for_update` 500 ms. It also
    sets `ads_data_redaction` to `true`, and `url_passthrough` to `true` when you tick the box.
