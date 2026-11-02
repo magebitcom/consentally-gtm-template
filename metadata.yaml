@@ -1,5 +1,7 @@
 homepage: "https://consentally.com"
 documentation: "https://consentally.com/docs/google-tag-manager"
 versions:
+  - sha: 0ef88b0ee7253b782dc75c63d082e881633d5ae5
+    changeNotes: "Sets ConsentAlly's Google developer ID before the Consent Mode defaults."
   - sha: 55e8ee74b38d752c37197399757db9736c953a50
     changeNotes: "First release: sets Google Consent Mode defaults and loads the ConsentAlly banner for a store key."
