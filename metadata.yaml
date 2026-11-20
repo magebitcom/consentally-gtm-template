@@ -1,6 +1,8 @@
 homepage: "https://consentally.com"
 documentation: "https://consentally.com/docs/google-tag-manager"
 versions:
+  - sha: 0a07615fe6d77279f6f09c56c575a0db4122f67a
+    changeNotes: "Shows the new ConsentAlly logo. No change to what the tag does."
   - sha: 0ef88b0ee7253b782dc75c63d082e881633d5ae5
     changeNotes: "Sets ConsentAlly's Google developer ID before the Consent Mode defaults."
   - sha: 55e8ee74b38d752c37197399757db9736c953a50
