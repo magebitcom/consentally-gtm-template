@@ -1,6 +1,8 @@
 homepage: "https://consentally.com"
 documentation: "https://consentally.com/docs/google-tag-manager"
 versions:
+  - sha: b16a16883c6c67d571b397fac086331b5004cf22
+    changeNotes: "Adds regional Consent Mode defaults per region, keeps the built-in denied defaults for a visitor with a saved choice, and denies every type but security_storage when the banner cannot start."
   - sha: 0a07615fe6d77279f6f09c56c575a0db4122f67a
     changeNotes: "Shows the new ConsentAlly logo. No change to what the tag does."
   - sha: 0ef88b0ee7253b782dc75c63d082e881633d5ae5
