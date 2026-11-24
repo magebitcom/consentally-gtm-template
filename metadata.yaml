@@ -1,6 +1,8 @@
 homepage: "https://consentally.com"
 documentation: "https://consentally.com/docs/google-tag-manager"
 versions:
+  - sha: 18d71219ec994cebb7622a04f409f1f05250a4d8
+    changeNotes: "Groups the regional defaults by ConsentAlly category (Analytics, Functional, Marketing), as the banner sets them; security_storage stays granted."
   - sha: b16a16883c6c67d571b397fac086331b5004cf22
     changeNotes: "Adds regional Consent Mode defaults per region, keeps the built-in denied defaults for a visitor with a saved choice, and denies every type but security_storage when the banner cannot start."
   - sha: 0a07615fe6d77279f6f09c56c575a0db4122f67a
