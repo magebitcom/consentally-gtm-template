@@ -81,8 +81,8 @@ ___TEMPLATE_PARAMETERS___
       {
         "param": {
           "type": "SELECT",
-          "name": "ad_storage",
-          "displayName": "ad_storage",
+          "name": "analytics",
+          "displayName": "Analytics",
           "macrosInSelect": false,
           "selectItems": [
             {
@@ -102,8 +102,8 @@ ___TEMPLATE_PARAMETERS___
       {
         "param": {
           "type": "SELECT",
-          "name": "ad_user_data",
-          "displayName": "ad_user_data",
+          "name": "functional",
+          "displayName": "Functional",
           "macrosInSelect": false,
           "selectItems": [
             {
@@ -123,8 +123,8 @@ ___TEMPLATE_PARAMETERS___
       {
         "param": {
           "type": "SELECT",
-          "name": "ad_personalization",
-          "displayName": "ad_personalization",
+          "name": "marketing",
+          "displayName": "Marketing",
           "macrosInSelect": false,
           "selectItems": [
             {
@@ -138,108 +138,24 @@ ___TEMPLATE_PARAMETERS___
           ],
           "simpleValueType": true,
           "defaultValue": "denied"
-        },
-        "isUnique": false
-      },
-      {
-        "param": {
-          "type": "SELECT",
-          "name": "analytics_storage",
-          "displayName": "analytics_storage",
-          "macrosInSelect": false,
-          "selectItems": [
-            {
-              "value": "denied",
-              "displayValue": "Denied"
-            },
-            {
-              "value": "granted",
-              "displayValue": "Granted"
-            }
-          ],
-          "simpleValueType": true,
-          "defaultValue": "denied"
-        },
-        "isUnique": false
-      },
-      {
-        "param": {
-          "type": "SELECT",
-          "name": "functionality_storage",
-          "displayName": "functionality_storage",
-          "macrosInSelect": false,
-          "selectItems": [
-            {
-              "value": "denied",
-              "displayValue": "Denied"
-            },
-            {
-              "value": "granted",
-              "displayValue": "Granted"
-            }
-          ],
-          "simpleValueType": true,
-          "defaultValue": "denied"
-        },
-        "isUnique": false
-      },
-      {
-        "param": {
-          "type": "SELECT",
-          "name": "personalization_storage",
-          "displayName": "personalization_storage",
-          "macrosInSelect": false,
-          "selectItems": [
-            {
-              "value": "denied",
-              "displayValue": "Denied"
-            },
-            {
-              "value": "granted",
-              "displayValue": "Granted"
-            }
-          ],
-          "simpleValueType": true,
-          "defaultValue": "denied"
-        },
-        "isUnique": false
-      },
-      {
-        "param": {
-          "type": "SELECT",
-          "name": "security_storage",
-          "displayName": "security_storage",
-          "macrosInSelect": false,
-          "selectItems": [
-            {
-              "value": "denied",
-              "displayValue": "Denied"
-            },
-            {
-              "value": "granted",
-              "displayValue": "Granted"
-            }
-          ],
-          "simpleValueType": true,
-          "defaultValue": "granted"
         },
         "isUnique": false
       }
     ],
     "newRowButtonText": "Add regions",
-    "help": "Consent Mode defaults for visitors from the regions you list, until the ConsentAlly banner loads: a country (ES) or a state or province (US-CA), several separated by commas. The most specific region wins, so a row for US-CA applies in California over a row for US. Visitors from every region not listed get the defaults for all other regions below. Once the banner loads it applies the region rules you set in the ConsentAlly dashboard, so set each row to match those rules (grant a type only where your rules for that region do not ask for consent first) and nothing changes when the banner takes over. The banner sets the types by your dashboard's categories, so set each row per category: security_storage is always granted once the banner loads, analytics_storage follows Analytics, functionality_storage and personalization_storage follow Functional together, and ad_storage, ad_user_data and ad_personalization follow Marketing together. A row that sets the types of one category differently, or denies security_storage, holds only until the banner loads. If the banner cannot load, or has not started 10 seconds after its script started, every type is denied except security_storage. If the visitor already has a saved choice for your store (the banner's ca_state_ cookie for your store key), no row is set and the defaults for all other regions are the built-in ones, so a visitor who refused does not start with a row's grants while that cookie is there; the banner applies the saved choice when it loads. A choice kept only in the browser's local storage is not seen, so the page starts with the rows until the banner loads, and every page does while the browser refuses that cookie. The same holds when the banner has already started when this tag runs (ConsentAlly's install tag on the page too), or a Tag Manager policy on your site blocks this tag's page globals (__consentallyTpl, ConsentAlly) or reading that cookie. The country is checked against the ISO 3166-1 list and a state or province by its format only: a code Google does not recognise matches no visitor, so those visitors get the defaults for all other regions."
+    "help": "Consent Mode defaults for visitors from the regions you list, until the ConsentAlly banner loads and applies your region rules: a country (ES) or a state or province (US-CA), several separated by commas; the most specific region wins. Each category sets the Google types the banner sets for it: Analytics sets analytics_storage, Functional sets functionality_storage and personalization_storage, and Marketing sets ad_storage, ad_user_data and ad_personalization; security_storage is always granted. Grant a category only where your ConsentAlly rules for those regions do not ask for consent first. Visitors with a saved choice get no row. Guide: https://consentally.com/docs/google-tag-manager"
   },
   {
     "type": "GROUP",
     "name": "otherRegions",
     "displayName": "Defaults for all other regions",
     "groupStyle": "ZIPPY_OPEN",
-    "help": "Consent Mode defaults for visitors from any region without a row above, until the ConsentAlly banner loads and applies your region rules. Out of the box every type is denied except security_storage.",
+    "help": "Consent Mode defaults for visitors from any region without a row above, until the ConsentAlly banner loads and applies your region rules. Out of the box every category is denied; security_storage is always granted.",
     "subParams": [
       {
         "type": "SELECT",
-        "name": "default_ad_storage",
-        "displayName": "ad_storage",
+        "name": "default_analytics",
+        "displayName": "Analytics",
         "macrosInSelect": false,
         "selectItems": [
           {
@@ -256,8 +172,8 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "SELECT",
-        "name": "default_ad_user_data",
-        "displayName": "ad_user_data",
+        "name": "default_functional",
+        "displayName": "Functional",
         "macrosInSelect": false,
         "selectItems": [
           {
@@ -274,8 +190,8 @@ ___TEMPLATE_PARAMETERS___
       },
       {
         "type": "SELECT",
-        "name": "default_ad_personalization",
-        "displayName": "ad_personalization",
+        "name": "default_marketing",
+        "displayName": "Marketing",
         "macrosInSelect": false,
         "selectItems": [
           {
@@ -289,78 +205,6 @@ ___TEMPLATE_PARAMETERS___
         ],
         "simpleValueType": true,
         "defaultValue": "denied"
-      },
-      {
-        "type": "SELECT",
-        "name": "default_analytics_storage",
-        "displayName": "analytics_storage",
-        "macrosInSelect": false,
-        "selectItems": [
-          {
-            "value": "denied",
-            "displayValue": "Denied"
-          },
-          {
-            "value": "granted",
-            "displayValue": "Granted"
-          }
-        ],
-        "simpleValueType": true,
-        "defaultValue": "denied"
-      },
-      {
-        "type": "SELECT",
-        "name": "default_functionality_storage",
-        "displayName": "functionality_storage",
-        "macrosInSelect": false,
-        "selectItems": [
-          {
-            "value": "denied",
-            "displayValue": "Denied"
-          },
-          {
-            "value": "granted",
-            "displayValue": "Granted"
-          }
-        ],
-        "simpleValueType": true,
-        "defaultValue": "denied"
-      },
-      {
-        "type": "SELECT",
-        "name": "default_personalization_storage",
-        "displayName": "personalization_storage",
-        "macrosInSelect": false,
-        "selectItems": [
-          {
-            "value": "denied",
-            "displayValue": "Denied"
-          },
-          {
-            "value": "granted",
-            "displayValue": "Granted"
-          }
-        ],
-        "simpleValueType": true,
-        "defaultValue": "denied"
-      },
-      {
-        "type": "SELECT",
-        "name": "default_security_storage",
-        "displayName": "security_storage",
-        "macrosInSelect": false,
-        "selectItems": [
-          {
-            "value": "denied",
-            "displayValue": "Denied"
-          },
-          {
-            "value": "granted",
-            "displayValue": "Granted"
-          }
-        ],
-        "simpleValueType": true,
-        "defaultValue": "granted"
       }
     ]
   },
@@ -369,7 +213,7 @@ ___TEMPLATE_PARAMETERS___
     "name": "gpcSignal",
     "displayName": "Global Privacy Control signal (optional)",
     "simpleValueType": true,
-    "help": "A variable that is true when the visitor's browser sends Global Privacy Control, such as a Custom JavaScript variable: function () { return navigator.globalPrivacyControl === true; }. When it is true, ad_storage, ad_user_data and ad_personalization start denied in every region, whatever a row grants, until the banner loads and applies your Global Privacy Control setting. Tag Manager templates cannot read the signal themselves; without this variable the banner applies it when it loads."
+    "help": "A variable that is true when the visitor's browser sends Global Privacy Control, such as a Custom JavaScript variable: function () { return navigator.globalPrivacyControl === true; }. When it is true, Marketing (ad_storage, ad_user_data and ad_personalization) starts denied in every region, whatever a row grants, until the banner loads and applies your Global Privacy Control setting. Tag Manager templates cannot read the signal themselves; without this variable the banner applies it when it loads."
   },
   {
     "type": "CHECKBOX",
@@ -414,8 +258,7 @@ const STORED_PREFIX = 'ca_state_';
 const WAIT_FOR_UPDATE_MS = 500;
 // A store key: 16 characters of lowercase base32.
 const KEY_CHARS = 'abcdefghijklmnopqrstuvwxyz234567';
-// The consent types the defaults set, each the template's field (regional rows) and, prefixed
-// with default_, its field for all other regions.
+// The consent types the defaults set.
 const CONSENT_TYPES = [
   'ad_storage',
   'ad_user_data',
@@ -425,6 +268,17 @@ const CONSENT_TYPES = [
   'personalization_storage',
   'security_storage'
 ];
+// Each type's ConsentAlly category, as the banner sets it (CATEGORY_TO_GOOGLE in its code): the
+// category is the template's field (regional rows) and, prefixed with default_, its field for all
+// other regions. security_storage has none: it is always granted.
+const CATEGORY_OF = {
+  ad_storage: 'marketing',
+  ad_user_data: 'marketing',
+  ad_personalization: 'marketing',
+  analytics_storage: 'analytics',
+  functionality_storage: 'functional',
+  personalization_storage: 'functional'
+};
 // The advertising types Global Privacy Control keeps denied.
 const AD_TYPES = ['ad_storage', 'ad_user_data', 'ad_personalization'];
 const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
@@ -479,18 +333,18 @@ const regionsOf = (list) => {
 // navigator itself): true or 'true'.
 const gpc = data.gpcSignal === true || data.gpcSignal === 'true';
 
-// One default's consent state from the fields named prefix + type: granted or denied as chosen,
-// and for anything else (a tag saved before the field existed) the built-in default, every type
-// denied but security_storage. Under Global Privacy Control the advertising types are denied.
+// One default's consent state from the category fields named prefix + category: each type of a
+// category granted only when that field is granted, and denied for anything else (a tag saved
+// before the field existed, whatever its old per-type fields say). security_storage is always
+// granted. Under Global Privacy Control the advertising types are denied.
 const stateOf = (values, prefix) => {
   const state = {};
   for (let i = 0; i < CONSENT_TYPES.length; i++) {
     const type = CONSENT_TYPES[i];
-    const value = values[prefix + type];
-    if (value === 'granted' || value === 'denied') {
-      state[type] = value;
+    if (type === 'security_storage') {
+      state[type] = 'granted';
     } else {
-      state[type] = type === 'security_storage' ? 'granted' : 'denied';
+      state[type] = values[prefix + CATEGORY_OF[type]] === 'granted' ? 'granted' : 'denied';
     }
   }
   if (gpc) {
@@ -1082,29 +936,13 @@ scenarios:
     assertApi('updateConsentState').wasCalledWith(deniedUpdate);
     assertApi('gtmOnFailure').wasCalled();
     assertApi('gtmOnSuccess').wasNotCalled();
-- name: Sets one default per regional row and the default for all other regions
+- name: Sets one default per regional row with each category's types, then the default for all other regions
   code: |-
     mockData.regionalDefaults = [
-      {
-        region: ' es, US-CA ',
-        ad_storage: 'denied',
-        ad_user_data: 'denied',
-        ad_personalization: 'denied',
-        analytics_storage: 'granted',
-        functionality_storage: 'granted',
-        personalization_storage: 'denied',
-        security_storage: 'granted'
-      },
-      {
-        region: 'US',
-        ad_storage: 'granted',
-        ad_user_data: 'granted',
-        ad_personalization: 'granted',
-        analytics_storage: 'granted',
-        functionality_storage: 'granted',
-        personalization_storage: 'granted',
-        security_storage: 'granted'
-      }
+      { region: ' es, US-CA ', analytics: 'granted', functional: 'denied', marketing: 'denied' },
+      { region: 'US', analytics: 'granted', functional: 'granted', marketing: 'granted' },
+      { region: 'FR', analytics: 'denied', functional: 'granted', marketing: 'denied' },
+      { region: 'DE', analytics: 'denied', functional: 'denied', marketing: 'granted' }
     ];
     runCode(mockData);
 
@@ -1113,7 +951,7 @@ scenarios:
       ad_user_data: 'denied',
       ad_personalization: 'denied',
       analytics_storage: 'granted',
-      functionality_storage: 'granted',
+      functionality_storage: 'denied',
       personalization_storage: 'denied',
       security_storage: 'granted',
       wait_for_update: 500,
@@ -1130,6 +968,28 @@ scenarios:
       wait_for_update: 500,
       region: ['US']
     });
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      personalization_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500,
+      region: ['FR']
+    });
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500,
+      region: ['DE']
+    });
     assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
     assertThat(cookieRead).isEqualTo('ca_state_abcdefghijklmnop');
     assertThat(injected).isEqualTo('https://edge.consentally.com/k/abcdefghijklmnop');
@@ -1137,9 +997,9 @@ scenarios:
 - name: Leaves out invalid region codes and skips a row with none
   code: |-
     mockData.regionalDefaults = [
-      { region: 'Spain, , US-CALIF, UK, XX, ZZ-CA', analytics_storage: 'granted' },
-      { region: 'FR, Germany', analytics_storage: 'granted' },
-      { region: '', analytics_storage: 'granted' }
+      { region: 'Spain, , US-CALIF, UK, XX, ZZ-CA', analytics: 'granted' },
+      { region: 'FR, Germany', analytics: 'granted' },
+      { region: '', analytics: 'granted' }
     ];
     runCode(mockData);
 
@@ -1156,10 +1016,10 @@ scenarios:
     });
     assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
     assertApi('gtmOnSuccess').wasCalled();
-- name: Sets the chosen default for all other regions
+- name: Sets the chosen categories for all other regions
   code: |-
-    mockData.default_analytics_storage = 'granted';
-    mockData.default_security_storage = 'denied';
+    mockData.default_analytics = 'granted';
+    mockData.default_functional = 'granted';
     runCode(mockData);
 
     assertApi('setDefaultConsentState').wasCalledWith({
@@ -1167,17 +1027,18 @@ scenarios:
       ad_user_data: 'denied',
       ad_personalization: 'denied',
       analytics_storage: 'granted',
-      functionality_storage: 'denied',
-      personalization_storage: 'denied',
-      security_storage: 'denied',
+      functionality_storage: 'granted',
+      personalization_storage: 'granted',
+      security_storage: 'granted',
       wait_for_update: 500
     });
     assertApi('setDefaultConsentState').wasNotCalledWith(deniedDefaults);
-- name: Denies the advertising types in every region when the GPC variable is true
+- name: Denies a category without its field, whatever a saved tag's old per-type fields say
   code: |-
-    mockData.gpcSignal = true;
     mockData.default_ad_storage = 'granted';
     mockData.default_analytics_storage = 'granted';
+    mockData.default_security_storage = 'denied';
+    mockData.default_functional = 'granted';
     mockData.regionalDefaults = [
       {
         region: 'US',
@@ -1187,8 +1048,39 @@ scenarios:
         analytics_storage: 'granted',
         functionality_storage: 'granted',
         personalization_storage: 'granted',
-        security_storage: 'granted'
+        security_storage: 'denied'
       }
+    ];
+    runCode(mockData);
+
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500,
+      region: ['US']
+    });
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'denied',
+      functionality_storage: 'granted',
+      personalization_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+- name: Denies Marketing in every region when the GPC variable is true
+  code: |-
+    mockData.gpcSignal = true;
+    mockData.default_marketing = 'granted';
+    mockData.default_analytics = 'granted';
+    mockData.regionalDefaults = [
+      { region: 'US', analytics: 'granted', functional: 'granted', marketing: 'granted' }
     ];
     runCode(mockData);
 
@@ -1227,8 +1119,8 @@ scenarios:
 - name: Sets only the built-in default when the banner has already started
   code: |-
     mock('copyFromWindow', (key) => key === 'ConsentAlly' ? {} : undefined);
-    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
-    mockData.default_analytics_storage = 'granted';
+    mockData.regionalDefaults = [{ region: 'US', analytics: 'granted' }];
+    mockData.default_analytics = 'granted';
     runCode(mockData);
 
     assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
@@ -1246,8 +1138,8 @@ scenarios:
 - name: Sets only the built-in default for a visitor with a saved choice
   code: |-
     mock('getCookieValues', (name) => name === 'ca_state_abcdefghijklmnop' ? ['1~saved'] : []);
-    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
-    mockData.default_analytics_storage = 'granted';
+    mockData.regionalDefaults = [{ region: 'US', analytics: 'granted' }];
+    mockData.default_analytics = 'granted';
     runCode(mockData);
 
     assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
@@ -1279,8 +1171,8 @@ scenarios:
 - name: Sets only the built-in default when a policy blocks reading the saved choice
   code: |-
     mock('queryPermission', (kind, mode, key) => kind !== 'get_cookies');
-    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
-    mockData.default_analytics_storage = 'granted';
+    mockData.regionalDefaults = [{ region: 'US', analytics: 'granted' }];
+    mockData.default_analytics = 'granted';
     runCode(mockData);
 
     assertThat(cookieRead).isEqualTo(undefined);
@@ -1312,8 +1204,8 @@ scenarios:
 - name: Sets only the built-in default when a policy blocks writing the page mark
   code: |-
     mock('queryPermission', (kind, mode, key) => kind !== 'access_globals' || key !== '__consentallyTpl');
-    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
-    mockData.default_analytics_storage = 'granted';
+    mockData.regionalDefaults = [{ region: 'US', analytics: 'granted' }];
+    mockData.default_analytics = 'granted';
     runCode(mockData);
 
     assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
@@ -1339,8 +1231,8 @@ scenarios:
       read = true;
       return undefined;
     });
-    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
-    mockData.default_analytics_storage = 'granted';
+    mockData.regionalDefaults = [{ region: 'US', analytics: 'granted' }];
+    mockData.default_analytics = 'granted';
     runCode(mockData);
 
     assertThat(read).isEqualTo(false);

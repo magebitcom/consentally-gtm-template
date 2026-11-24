@@ -46,9 +46,10 @@ this tag.
 The tag's defaults apply until the ConsentAlly banner loads. Each row of the
 **Regional defaults** table sets them for the regions it lists: ISO 3166-2 codes separated by
 commas, a country such as `ES` or a state or province such as `US-CA`, and **Granted** or
-**Denied** for each consent type. Google applies the most specific region, so a `US-CA` row wins
-over a `US` row in California. Visitors from a region without a row get **Defaults for all other
-regions**, out of the box every type denied but `security_storage`. The tag trims and upper-cases
+**Denied** for each ConsentAlly category: **Analytics**, **Functional** and **Marketing**. Google
+applies the most specific region, so a `US-CA` row wins over a `US` row in California. Visitors
+from a region without a row get **Defaults for all other regions**, the same three categories, out
+of the box all denied. The tag trims and upper-cases
 the codes. The country must be on the ISO 3166-1 list (`GB`, not `UK`); a state or province is
 checked by its format only, and a code Google does not recognise matches no visitor, so those
 visitors get the defaults for all other regions. An invalid code is left out and a row with no
@@ -66,24 +67,22 @@ The tag reads only that cookie. Its permission allows reading any cookie, since 
 your store key and Tag Manager's cookie permission takes exact names only; a Tag Manager policy
 that blocks reading it gets the same built-in defaults.
 
-The banner sets Google's types by your dashboard's categories, so it can repeat only defaults that
-follow those categories:
+Each category sets the Google types the banner sets for it, so a row that matches your ConsentAlly
+rules for its regions changes nothing when the banner takes over:
 
-| Consent type                                       | Once the banner loads                   |
-| -------------------------------------------------- | --------------------------------------- |
-| `security_storage`                                 | Always granted                          |
-| `analytics_storage`                                | Analytics                               |
-| `functionality_storage`, `personalization_storage` | Functional: both granted or both denied |
-| `ad_storage`, `ad_user_data`, `ad_personalization` | Marketing: all granted or all denied    |
+| Category   | Google types                                       |
+| ---------- | -------------------------------------------------- |
+| Analytics  | `analytics_storage`                                |
+| Functional | `functionality_storage`, `personalization_storage` |
+| Marketing  | `ad_storage`, `ad_user_data`, `ad_personalization` |
 
-So set each row per category to match your ConsentAlly rules for its regions: `security_storage`
-granted, the two functional types alike and the three ad types alike. Then nothing changes when
-the banner takes over. A row that sets the types of one category differently, or denies
-`security_storage`, holds only until the banner loads.
+`security_storage` is always granted. A tag saved before these category columns existed has no
+category fields: each category it lacks is denied, whatever its older per-type fields say, until
+you choose the categories in the tag and save it.
 
 For example, a store whose banner asks first in Europe and only offers an opt-out in the United
-States adds a row with the region `US` and every type **Granted**, and keeps the defaults for all
-other regions denied. The tag then sets:
+States adds a row with the region `US` and all three categories **Granted**, and keeps the defaults
+for all other regions denied. The tag then sets:
 
 ```js
 // The row: every type granted in the United States.
@@ -111,8 +110,8 @@ setDefaultConsentState({
 });
 ```
 
-Grant a type only in regions where your ConsentAlly rules do not ask for consent before tracking,
-so the defaults and the banner agree.
+Grant a category only in regions where your ConsentAlly rules do not ask for consent before
+tracking, so the defaults and the banner agree.
 
 ### Global Privacy Control
 
@@ -127,7 +126,7 @@ function () {
 ```
 
 and choose it as the tag's **Global Privacy Control signal**. When it is true, the tag sets
-`ad_storage`, `ad_user_data` and `ad_personalization` denied in every row and in the defaults for
+Marketing's `ad_storage`, `ad_user_data` and `ad_personalization` denied in every row and in the defaults for
 all other regions, until the banner loads and applies your Global Privacy Control setting from
 the ConsentAlly dashboard. Without the variable, the banner applies the signal when it loads.
 
@@ -198,8 +197,8 @@ trigger.
   browser's local storage, which a template cannot read under a name that holds the store key;
   when only that copy is left, the page starts with the regional rows until the banner loads,
   applies the choice and writes the cookie again, and every page does while the browser refuses
-  that cookie. Where a saved refusal has to hold before the banner loads, keep the types it covers
-  denied in the rows.
+  that cookie. Where a saved refusal has to hold before the banner loads, keep the categories it
+  covers denied in the rows.
 - A Custom JavaScript variable for the Global Privacy Control field cannot run under a Content
   Security Policy without `unsafe-eval`: Tag Manager returns `undefined`, which the tag reads as
   no signal. Check its value in Preview mode.
