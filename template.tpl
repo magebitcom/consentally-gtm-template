@@ -53,6 +53,325 @@ ___TEMPLATE_PARAMETERS___
     ]
   },
   {
+    "type": "PARAM_TABLE",
+    "name": "regionalDefaults",
+    "displayName": "Regional defaults",
+    "paramTableColumns": [
+      {
+        "param": {
+          "type": "TEXT",
+          "name": "region",
+          "displayName": "Regions",
+          "simpleValueType": true,
+          "valueValidators": [
+            {
+              "type": "NON_EMPTY"
+            },
+            {
+              "type": "REGEX",
+              "args": [
+                "^\\s*(?:[Aa][DEFGILMOQRSTUWXZdefgilmoqrstuwxz]|[Bb][ABDEFGHIJLMNOQRSTVWYZabdefghijlmnoqrstvwyz]|[Cc][ACDFGHIKLMNORUVWXYZacdfghiklmnoruvwxyz]|[Dd][EJKMOZejkmoz]|[Ee][CEGHRSTceghrst]|[Ff][IJKMORijkmor]|[Gg][ABDEFGHILMNPQRSTUWYabdefghilmnpqrstuwy]|[Hh][KMNRTUkmnrtu]|[Ii][DELMNOQRSTdelmnoqrst]|[Jj][EMOPemop]|[Kk][EGHIMNPRWYZeghimnprwyz]|[Ll][ABCIKRSTUVYabcikrstuvy]|[Mm][ACDEFGHKLMNOPQRSTUVWXYZacdefghklmnopqrstuvwxyz]|[Nn][ACEFGILOPRUZacefgilopruz]|[Oo][Mm]|[Pp][AEFGHKLMNRSTWYaefghklmnrstwy]|[Qq][Aa]|[Rr][EOSUWeosuw]|[Ss][ABCDEGHIJKLMNORSTVXYZabcdeghijklmnorstvxyz]|[Tt][CDFGHJKLMNORTVWZcdfghjklmnortvwz]|[Uu][AGMSYZagmsyz]|[Vv][ACEGINUaceginu]|[Ww][FSfs]|[Yy][ETet]|[Zz][AMWamw])(-[A-Za-z0-9]{1,3})?\\s*(,\\s*(?:[Aa][DEFGILMOQRSTUWXZdefgilmoqrstuwxz]|[Bb][ABDEFGHIJLMNOQRSTVWYZabdefghijlmnoqrstvwyz]|[Cc][ACDFGHIKLMNORUVWXYZacdfghiklmnoruvwxyz]|[Dd][EJKMOZejkmoz]|[Ee][CEGHRSTceghrst]|[Ff][IJKMORijkmor]|[Gg][ABDEFGHILMNPQRSTUWYabdefghilmnpqrstuwy]|[Hh][KMNRTUkmnrtu]|[Ii][DELMNOQRSTdelmnoqrst]|[Jj][EMOPemop]|[Kk][EGHIMNPRWYZeghimnprwyz]|[Ll][ABCIKRSTUVYabcikrstuvy]|[Mm][ACDEFGHKLMNOPQRSTUVWXYZacdefghklmnopqrstuvwxyz]|[Nn][ACEFGILOPRUZacefgilopruz]|[Oo][Mm]|[Pp][AEFGHKLMNRSTWYaefghklmnrstwy]|[Qq][Aa]|[Rr][EOSUWeosuw]|[Ss][ABCDEGHIJKLMNORSTVXYZabcdeghijklmnorstvxyz]|[Tt][CDFGHJKLMNORTVWZcdfghjklmnortvwz]|[Uu][AGMSYZagmsyz]|[Vv][ACEGINUaceginu]|[Ww][FSfs]|[Yy][ETet]|[Zz][AMWamw])(-[A-Za-z0-9]{1,3})?\\s*)*$"
+              ],
+              "errorMessage": "Enter ISO 3166-2 region codes separated by commas, each starting with an ISO 3166-1 country code, for example ES, US-CA."
+            }
+          ]
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "ad_storage",
+          "displayName": "ad_storage",
+          "macrosInSelect": false,
+          "selectItems": [
+            {
+              "value": "denied",
+              "displayValue": "Denied"
+            },
+            {
+              "value": "granted",
+              "displayValue": "Granted"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "denied"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "ad_user_data",
+          "displayName": "ad_user_data",
+          "macrosInSelect": false,
+          "selectItems": [
+            {
+              "value": "denied",
+              "displayValue": "Denied"
+            },
+            {
+              "value": "granted",
+              "displayValue": "Granted"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "denied"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "ad_personalization",
+          "displayName": "ad_personalization",
+          "macrosInSelect": false,
+          "selectItems": [
+            {
+              "value": "denied",
+              "displayValue": "Denied"
+            },
+            {
+              "value": "granted",
+              "displayValue": "Granted"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "denied"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "analytics_storage",
+          "displayName": "analytics_storage",
+          "macrosInSelect": false,
+          "selectItems": [
+            {
+              "value": "denied",
+              "displayValue": "Denied"
+            },
+            {
+              "value": "granted",
+              "displayValue": "Granted"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "denied"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "functionality_storage",
+          "displayName": "functionality_storage",
+          "macrosInSelect": false,
+          "selectItems": [
+            {
+              "value": "denied",
+              "displayValue": "Denied"
+            },
+            {
+              "value": "granted",
+              "displayValue": "Granted"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "denied"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "personalization_storage",
+          "displayName": "personalization_storage",
+          "macrosInSelect": false,
+          "selectItems": [
+            {
+              "value": "denied",
+              "displayValue": "Denied"
+            },
+            {
+              "value": "granted",
+              "displayValue": "Granted"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "denied"
+        },
+        "isUnique": false
+      },
+      {
+        "param": {
+          "type": "SELECT",
+          "name": "security_storage",
+          "displayName": "security_storage",
+          "macrosInSelect": false,
+          "selectItems": [
+            {
+              "value": "denied",
+              "displayValue": "Denied"
+            },
+            {
+              "value": "granted",
+              "displayValue": "Granted"
+            }
+          ],
+          "simpleValueType": true,
+          "defaultValue": "granted"
+        },
+        "isUnique": false
+      }
+    ],
+    "newRowButtonText": "Add regions",
+    "help": "Consent Mode defaults for visitors from the regions you list, until the ConsentAlly banner loads: a country (ES) or a state or province (US-CA), several separated by commas. The most specific region wins, so a row for US-CA applies in California over a row for US. Visitors from every region not listed get the defaults for all other regions below. Once the banner loads it applies the region rules you set in the ConsentAlly dashboard, so set each row to match those rules (grant a type only where your rules for that region do not ask for consent first) and nothing changes when the banner takes over. The banner sets the types by your dashboard's categories, so set each row per category: security_storage is always granted once the banner loads, analytics_storage follows Analytics, functionality_storage and personalization_storage follow Functional together, and ad_storage, ad_user_data and ad_personalization follow Marketing together. A row that sets the types of one category differently, or denies security_storage, holds only until the banner loads. If the banner cannot load, or has not started 10 seconds after its script started, every type is denied except security_storage. If the visitor already has a saved choice for your store (the banner's ca_state_ cookie for your store key), no row is set and the defaults for all other regions are the built-in ones, so a visitor who refused does not start with a row's grants while that cookie is there; the banner applies the saved choice when it loads. A choice kept only in the browser's local storage is not seen, so the page starts with the rows until the banner loads, and every page does while the browser refuses that cookie. The same holds when the banner has already started when this tag runs (ConsentAlly's install tag on the page too), or a Tag Manager policy on your site blocks this tag's page globals (__consentallyTpl, ConsentAlly) or reading that cookie. The country is checked against the ISO 3166-1 list and a state or province by its format only: a code Google does not recognise matches no visitor, so those visitors get the defaults for all other regions."
+  },
+  {
+    "type": "GROUP",
+    "name": "otherRegions",
+    "displayName": "Defaults for all other regions",
+    "groupStyle": "ZIPPY_OPEN",
+    "help": "Consent Mode defaults for visitors from any region without a row above, until the ConsentAlly banner loads and applies your region rules. Out of the box every type is denied except security_storage.",
+    "subParams": [
+      {
+        "type": "SELECT",
+        "name": "default_ad_storage",
+        "displayName": "ad_storage",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "denied",
+            "displayValue": "Denied"
+          },
+          {
+            "value": "granted",
+            "displayValue": "Granted"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "denied"
+      },
+      {
+        "type": "SELECT",
+        "name": "default_ad_user_data",
+        "displayName": "ad_user_data",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "denied",
+            "displayValue": "Denied"
+          },
+          {
+            "value": "granted",
+            "displayValue": "Granted"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "denied"
+      },
+      {
+        "type": "SELECT",
+        "name": "default_ad_personalization",
+        "displayName": "ad_personalization",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "denied",
+            "displayValue": "Denied"
+          },
+          {
+            "value": "granted",
+            "displayValue": "Granted"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "denied"
+      },
+      {
+        "type": "SELECT",
+        "name": "default_analytics_storage",
+        "displayName": "analytics_storage",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "denied",
+            "displayValue": "Denied"
+          },
+          {
+            "value": "granted",
+            "displayValue": "Granted"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "denied"
+      },
+      {
+        "type": "SELECT",
+        "name": "default_functionality_storage",
+        "displayName": "functionality_storage",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "denied",
+            "displayValue": "Denied"
+          },
+          {
+            "value": "granted",
+            "displayValue": "Granted"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "denied"
+      },
+      {
+        "type": "SELECT",
+        "name": "default_personalization_storage",
+        "displayName": "personalization_storage",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "denied",
+            "displayValue": "Denied"
+          },
+          {
+            "value": "granted",
+            "displayValue": "Granted"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "denied"
+      },
+      {
+        "type": "SELECT",
+        "name": "default_security_storage",
+        "displayName": "security_storage",
+        "macrosInSelect": false,
+        "selectItems": [
+          {
+            "value": "denied",
+            "displayValue": "Denied"
+          },
+          {
+            "value": "granted",
+            "displayValue": "Granted"
+          }
+        ],
+        "simpleValueType": true,
+        "defaultValue": "granted"
+      }
+    ]
+  },
+  {
+    "type": "TEXT",
+    "name": "gpcSignal",
+    "displayName": "Global Privacy Control signal (optional)",
+    "simpleValueType": true,
+    "help": "A variable that is true when the visitor's browser sends Global Privacy Control, such as a Custom JavaScript variable: function () { return navigator.globalPrivacyControl === true; }. When it is true, ad_storage, ad_user_data and ad_personalization start denied in every region, whatever a row grants, until the banner loads and applies your Global Privacy Control setting. Tag Manager templates cannot read the signal themselves; without this variable the banner applies it when it loads."
+  },
+  {
     "type": "CHECKBOX",
     "name": "urlPassthrough",
     "checkboxText": "Pass ad click information through URLs (url_passthrough)",
@@ -65,22 +384,54 @@ ___TEMPLATE_PARAMETERS___
 
 ___SANDBOXED_JS_FOR_WEB_TEMPLATE___
 
+const copyFromWindow = require('copyFromWindow');
+const getCookieValues = require('getCookieValues');
 const getType = require('getType');
 const gtagSet = require('gtagSet');
 const injectScript = require('injectScript');
 const log = require('logToConsole');
 const queryPermission = require('queryPermission');
 const setDefaultConsentState = require('setDefaultConsentState');
+const setInWindow = require('setInWindow');
+const updateConsentState = require('updateConsentState');
 
 // ConsentAlly's developer ID in Google's CMP Partner Program, set before the defaults, as the
 // install tag does (its write_data_layer permission names it).
 const DEVELOPER_ID_FIELD = 'developer_id.dY2MxZT';
 // ConsentAlly's edge, the only host this template loads from (its inject_script permission).
 const EDGE = 'https://edge.consentally.com';
+// The page global that tells ConsentAlly's script this tag set Google's defaults (its
+// access_globals permission names it, write only), and the value this version writes.
+const TEMPLATE_GLOBAL = '__consentallyTpl';
+const TEMPLATE_LINE = 2;
+// The banner's public API, which exists once the banner has started (read only).
+const BANNER_GLOBAL = 'ConsentAlly';
+// The cookie the banner saves the visitor's choice in, named for the store: this prefix and the
+// store key (its get_cookies permission allows any name, since the key is the merchant's; the
+// tag reads only this one).
+const STORED_PREFIX = 'ca_state_';
 // How long Google tags wait for the banner's consent update, as on the install tag.
 const WAIT_FOR_UPDATE_MS = 500;
 // A store key: 16 characters of lowercase base32.
 const KEY_CHARS = 'abcdefghijklmnopqrstuvwxyz234567';
+// The consent types the defaults set, each the template's field (regional rows) and, prefixed
+// with default_, its field for all other regions.
+const CONSENT_TYPES = [
+  'ad_storage',
+  'ad_user_data',
+  'ad_personalization',
+  'analytics_storage',
+  'functionality_storage',
+  'personalization_storage',
+  'security_storage'
+];
+// The advertising types Global Privacy Control keeps denied.
+const AD_TYPES = ['ad_storage', 'ad_user_data', 'ad_personalization'];
+const LETTERS = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+const DIGITS = '0123456789';
+// ISO 3166-1 alpha-2: the 249 officially assigned country codes, separated by spaces.
+const COUNTRIES =
+  'AD AE AF AG AI AL AM AO AQ AR AS AT AU AW AX AZ BA BB BD BE BF BG BH BI BJ BL BM BN BO BQ BR BS BT BV BW BY BZ CA CC CD CF CG CH CI CK CL CM CN CO CR CU CV CW CX CY CZ DE DJ DK DM DO DZ EC EE EG EH ER ES ET FI FJ FK FM FO FR GA GB GD GE GF GG GH GI GL GM GN GP GQ GR GS GT GU GW GY HK HM HN HR HT HU ID IE IL IM IN IO IQ IR IS IT JE JM JO JP KE KG KH KI KM KN KP KR KW KY KZ LA LB LC LI LK LR LS LT LU LV LY MA MC MD ME MF MG MH MK ML MM MN MO MP MQ MR MS MT MU MV MW MX MY MZ NA NC NE NF NG NI NL NO NP NR NU NZ OM PA PE PF PG PH PK PL PM PN PR PS PT PW PY QA RE RO RS RU RW SA SB SC SD SE SG SH SI SJ SK SL SM SN SO SR SS ST SV SX SY SZ TC TD TF TG TH TJ TK TL TM TN TO TR TT TV TW TZ UA UG UM US UY UZ VA VC VE VG VI VN VU WF WS YE YT ZA ZM ZW';
 
 const isStoreKey = (key) => {
   if (getType(key) !== 'string' || key.length !== 16) return false;
@@ -90,33 +441,161 @@ const isStoreKey = (key) => {
   return true;
 };
 
-// The developer ID and the defaults first, whatever happens next: every type denied but security,
-// the same state the install tag sets before any choice. The banner's update replaces them once
-// it has decided.
+// An ISO 3166-2 code as gtag reads it: a country (ES) or a country, a hyphen and one to three
+// letters or digits for a subdivision (US-CA). The country must be an ISO 3166-1 code; the
+// subdivision is checked by its format only, so one Google does not know matches no visitor.
+const isRegion = (code) => {
+  if (code.length !== 2 && (code.length < 4 || code.length > 6)) return false;
+  if (COUNTRIES.indexOf(code.charAt(0) + code.charAt(1)) < 0) return false;
+  for (let i = 0; i < code.length; i++) {
+    const c = code.charAt(i);
+    if (i === 2) {
+      if (c !== '-') return false;
+    } else if (LETTERS.indexOf(c) < 0 && (i < 2 || DIGITS.indexOf(c) < 0)) {
+      return false;
+    }
+  }
+  return true;
+};
+
+// The valid codes of a row's comma-separated region list, trimmed and upper-cased; each invalid
+// one is logged and left out.
+const regionsOf = (list) => {
+  const regions = [];
+  if (getType(list) !== 'string') return regions;
+  const parts = list.split(',');
+  for (let i = 0; i < parts.length; i++) {
+    const code = parts[i].trim().toUpperCase();
+    if (isRegion(code)) {
+      regions.push(code);
+    } else if (code !== '') {
+      log('ConsentAlly: "' + code + '" is not an ISO 3166-2 region code of a country and is left out.');
+    }
+  }
+  return regions;
+};
+
+// Global Privacy Control as the merchant's variable reports it (a template cannot read
+// navigator itself): true or 'true'.
+const gpc = data.gpcSignal === true || data.gpcSignal === 'true';
+
+// One default's consent state from the fields named prefix + type: granted or denied as chosen,
+// and for anything else (a tag saved before the field existed) the built-in default, every type
+// denied but security_storage. Under Global Privacy Control the advertising types are denied.
+const stateOf = (values, prefix) => {
+  const state = {};
+  for (let i = 0; i < CONSENT_TYPES.length; i++) {
+    const type = CONSENT_TYPES[i];
+    const value = values[prefix + type];
+    if (value === 'granted' || value === 'denied') {
+      state[type] = value;
+    } else {
+      state[type] = type === 'security_storage' ? 'granted' : 'denied';
+    }
+  }
+  if (gpc) {
+    for (let i = 0; i < AD_TYPES.length; i++) state[AD_TYPES[i]] = 'denied';
+  }
+  state.wait_for_update = WAIT_FOR_UPDATE_MS;
+  return state;
+};
+
+// The developer ID and the defaults first, whatever happens next: one default per regional row,
+// for the regions it names, then the default for all other regions, out of the box every type
+// denied but security, the same state the install tag sets before any choice. The most specific
+// region wins. A row with no valid region is skipped, so its visitors get the
+// default for all other regions. These defaults cover only the time before the banner loads: its
+// update on load applies the store's region rules in every region; the shim the tag loads leaves
+// Google's defaults to the tag. A banner that already started (the install tag on the page too,
+// ahead of this container) has already sent its update, or left it out as a repeat of its denied
+// defaults: then only the built-in default is set, with no row, so no grant arrives after it.
+// So is a visitor with a saved choice (the store's ca_state_ cookie, whatever it holds): a row's
+// grant would stand for a visitor who refused until the banner loads and applies the choice. A
+// cookie the tag cannot read (a policy blocking it) counts as saved.
+// Both globals are checked first (a site's Tag Manager policy can block either, and a blocked
+// call would stop the tag before any default): no grant is set unless the banner's global can be
+// read and the mark written, since without the mark the shim sets its own denied defaults and the
+// banner may leave its update on load out as a repeat of them.
 gtagSet(DEVELOPER_ID_FIELD, true);
-setDefaultConsentState({
-  ad_storage: 'denied',
-  ad_user_data: 'denied',
-  ad_personalization: 'denied',
-  analytics_storage: 'denied',
-  functionality_storage: 'denied',
-  personalization_storage: 'denied',
-  security_storage: 'granted',
-  wait_for_update: WAIT_FOR_UPDATE_MS
-});
+// setInWindow needs read and write on the key, as Tag Manager checks it.
+const canMark = queryPermission('access_globals', 'readwrite', TEMPLATE_GLOBAL);
+const canRead = queryPermission('access_globals', 'read', BANNER_GLOBAL);
+const started = canRead && copyFromWindow(BANNER_GLOBAL) !== undefined;
+const validKey = isStoreKey(data.storeKey);
+const storedName = STORED_PREFIX + data.storeKey;
+const canReadStored = validKey && queryPermission('get_cookies', storedName);
+// Only whether it exists counts, so its value is not decoded.
+const saved = canReadStored && getCookieValues(storedName, false).length > 0;
+const regional = canMark && canRead && canReadStored && !started && !saved;
+if (started) {
+  log('ConsentAlly: the banner has already started, so the regional defaults are not set.');
+} else if (saved) {
+  log('ConsentAlly: this visitor has a saved choice (the ' + storedName + ' cookie), so only ' +
+    'the built-in denied defaults are set; the banner applies the choice when it loads.');
+} else if (!canMark || !canRead) {
+  log('ConsentAlly: a Tag Manager policy blocks window.' + TEMPLATE_GLOBAL + ' or window.' +
+    BANNER_GLOBAL + ', so only the built-in denied defaults are set.');
+} else if (validKey && !canReadStored) {
+  log('ConsentAlly: a Tag Manager policy blocks reading the ' + storedName + ' cookie, so ' +
+    'only the built-in denied defaults are set.');
+}
+const rows =
+  regional && getType(data.regionalDefaults) === 'array' ? data.regionalDefaults : [];
+for (let i = 0; i < rows.length; i++) {
+  const row = rows[i];
+  const regions = getType(row) === 'object' ? regionsOf(row.region) : [];
+  if (regions.length > 0) {
+    const state = stateOf(row, '');
+    state.region = regions;
+    setDefaultConsentState(state);
+  } else {
+    log('ConsentAlly: regional defaults row ' + (i + 1) + ' names no valid region and is skipped.');
+  }
+}
+setDefaultConsentState(stateOf(regional ? data : {}, 'default_'));
 gtagSet('ads_data_redaction', true);
 if (data.urlPassthrough === true) gtagSet('url_passthrough', true);
 
+// Every type but security_storage updated to denied, so no grant from the defaults stays.
+const deny = () => {
+  const denied = {};
+  for (let i = 0; i < CONSENT_TYPES.length; i++) {
+    const type = CONSENT_TYPES[i];
+    denied[type] = type === 'security_storage' ? 'granted' : 'denied';
+  }
+  updateConsentState(denied);
+};
+
+// No banner (a malformed key, or a shim that fails to load): denied, so no grant from the
+// defaults stays without a banner to change it. A banner that has started by then (the install
+// tag's, read again now) has sent its update over the defaults, so its decision stands.
+const fail = () => {
+  if (!canRead || copyFromWindow(BANNER_GLOBAL) === undefined) deny();
+  data.gtmOnFailure();
+};
+
 // Then the banner: the shim for this store, from the edge by its key. The shim reads the key
 // from its own address, fetches the store's settings and loads the banner, whose choices reach
-// Consent Mode as updates on the dataLayer. When the install tag is on the page too, this copy
-// finds it there and does nothing.
+// Consent Mode as updates on the dataLayer (and on every other data layer a Google tag reads);
+// when it cannot start the banner, or the banner has not started 10 seconds after the shim
+// started, it sets every type but security_storage denied itself. When the install tag is on
+// the page too, this copy finds it there and only keeps a deadline of its own: unless the banner
+// has started 10 seconds after this copy did, every type but security_storage is denied. First
+// this tag marks the page
+// (TEMPLATE_GLOBAL): the shim then sets no Google default of its own over these, regional ones
+// included, and the banner always sends its update on load. A shim from before the mark (one the
+// edge serves after a rollback) ignores it: it still starts the banner from the same address and
+// sets its own default, every type denied, which replaces only the default for all other regions.
+// A page the mark cannot be set on gets every type denied now instead, unless the banner had
+// already started (no grant was set above); one whose policy blocks the mark had no grant set
+// above, and its shim sets its own denied defaults.
 const url = EDGE + '/k/' + data.storeKey;
-if (isStoreKey(data.storeKey) && queryPermission('inject_script', url)) {
-  injectScript(url, data.gtmOnSuccess, data.gtmOnFailure, url);
+if (validKey && queryPermission('inject_script', url)) {
+  if (canMark && !setInWindow(TEMPLATE_GLOBAL, TEMPLATE_LINE, true) && !started) deny();
+  injectScript(url, data.gtmOnSuccess, fail, url);
 } else {
   log('ConsentAlly: the store key must be the 16 characters from your install page.');
-  data.gtmOnFailure();
+  fail();
 }
 
 
@@ -135,6 +614,27 @@ ___WEB_PERMISSIONS___
           "value": {
             "type": 1,
             "string": "debug"
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
+    "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
+        "publicId": "get_cookies",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "cookieAccess",
+          "value": {
+            "type": 1,
+            "string": "any"
           }
         }
       ]
@@ -420,6 +920,106 @@ ___WEB_PERMISSIONS___
   {
     "instance": {
       "key": {
+        "publicId": "access_globals",
+        "versionId": "1"
+      },
+      "param": [
+        {
+          "key": "keys",
+          "value": {
+            "type": 2,
+            "listItem": [
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "__consentallyTpl"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  }
+                ]
+              },
+              {
+                "type": 3,
+                "mapKey": [
+                  {
+                    "type": 1,
+                    "string": "key"
+                  },
+                  {
+                    "type": 1,
+                    "string": "read"
+                  },
+                  {
+                    "type": 1,
+                    "string": "write"
+                  },
+                  {
+                    "type": 1,
+                    "string": "execute"
+                  }
+                ],
+                "mapValue": [
+                  {
+                    "type": 1,
+                    "string": "ConsentAlly"
+                  },
+                  {
+                    "type": 8,
+                    "boolean": true
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  },
+                  {
+                    "type": 8,
+                    "boolean": false
+                  }
+                ]
+              }
+            ]
+          }
+        }
+      ]
+    },
+    "clientAnnotations": {
+      "isEditedByUser": true
+    },
+    "isRequired": true
+  },
+  {
+    "instance": {
+      "key": {
         "publicId": "inject_script",
         "versionId": "1"
       },
@@ -449,24 +1049,18 @@ ___WEB_PERMISSIONS___
 ___TESTS___
 
 scenarios:
-- name: Sets the denied defaults and loads the shim for the store key
+- name: Sets the denied defaults without regional rows and loads the shim for the store key
   code: |-
     runCode(mockData);
 
     assertApi('gtagSet').wasCalledWith('developer_id.dY2MxZT', true);
-    assertApi('setDefaultConsentState').wasCalledWith({
-      ad_storage: 'denied',
-      ad_user_data: 'denied',
-      ad_personalization: 'denied',
-      analytics_storage: 'denied',
-      functionality_storage: 'denied',
-      personalization_storage: 'denied',
-      security_storage: 'granted',
-      wait_for_update: 500
-    });
+    assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
     assertApi('gtagSet').wasCalledWith('ads_data_redaction', true);
     assertApi('gtagSet').wasNotCalledWith('url_passthrough', true);
     assertThat(injected).isEqualTo('https://edge.consentally.com/k/abcdefghijklmnop');
+    assertThat(markedBeforeInject).isEqualTo(true);
+    assertApi('setInWindow').wasCalledWith('__consentallyTpl', 2, true);
+    assertApi('updateConsentState').wasNotCalled();
     assertApi('gtmOnSuccess').wasCalled();
     assertApi('gtmOnFailure').wasNotCalled();
 - name: Sets url_passthrough when the box is ticked
@@ -484,9 +1078,142 @@ scenarios:
     assertApi('setDefaultConsentState').wasCalled();
     assertApi('gtagSet').wasCalledWith('ads_data_redaction', true);
     assertApi('injectScript').wasNotCalled();
+    assertApi('setInWindow').wasNotCalled();
+    assertApi('updateConsentState').wasCalledWith(deniedUpdate);
     assertApi('gtmOnFailure').wasCalled();
     assertApi('gtmOnSuccess').wasNotCalled();
-- name: Reports a failure when the shim does not load
+- name: Sets one default per regional row and the default for all other regions
+  code: |-
+    mockData.regionalDefaults = [
+      {
+        region: ' es, US-CA ',
+        ad_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        analytics_storage: 'granted',
+        functionality_storage: 'granted',
+        personalization_storage: 'denied',
+        security_storage: 'granted'
+      },
+      {
+        region: 'US',
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+        functionality_storage: 'granted',
+        personalization_storage: 'granted',
+        security_storage: 'granted'
+      }
+    ];
+    runCode(mockData);
+
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'granted',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500,
+      region: ['ES', 'US-CA']
+    });
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'granted',
+      ad_user_data: 'granted',
+      ad_personalization: 'granted',
+      analytics_storage: 'granted',
+      functionality_storage: 'granted',
+      personalization_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500,
+      region: ['US']
+    });
+    assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
+    assertThat(cookieRead).isEqualTo('ca_state_abcdefghijklmnop');
+    assertThat(injected).isEqualTo('https://edge.consentally.com/k/abcdefghijklmnop');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Leaves out invalid region codes and skips a row with none
+  code: |-
+    mockData.regionalDefaults = [
+      { region: 'Spain, , US-CALIF, UK, XX, ZZ-CA', analytics_storage: 'granted' },
+      { region: 'FR, Germany', analytics_storage: 'granted' },
+      { region: '', analytics_storage: 'granted' }
+    ];
+    runCode(mockData);
+
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500,
+      region: ['FR']
+    });
+    assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Sets the chosen default for all other regions
+  code: |-
+    mockData.default_analytics_storage = 'granted';
+    mockData.default_security_storage = 'denied';
+    runCode(mockData);
+
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'denied',
+      wait_for_update: 500
+    });
+    assertApi('setDefaultConsentState').wasNotCalledWith(deniedDefaults);
+- name: Denies the advertising types in every region when the GPC variable is true
+  code: |-
+    mockData.gpcSignal = true;
+    mockData.default_ad_storage = 'granted';
+    mockData.default_analytics_storage = 'granted';
+    mockData.regionalDefaults = [
+      {
+        region: 'US',
+        ad_storage: 'granted',
+        ad_user_data: 'granted',
+        ad_personalization: 'granted',
+        analytics_storage: 'granted',
+        functionality_storage: 'granted',
+        personalization_storage: 'granted',
+        security_storage: 'granted'
+      }
+    ];
+    runCode(mockData);
+
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'granted',
+      personalization_storage: 'granted',
+      security_storage: 'granted',
+      wait_for_update: 500,
+      region: ['US']
+    });
+    assertApi('setDefaultConsentState').wasCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+- name: Reports a failure and denies every type when the shim does not load
   code: |-
     mock('injectScript', (url, onSuccess, onFailure) => {
       onFailure();
@@ -494,18 +1221,185 @@ scenarios:
     runCode(mockData);
 
     assertApi('setDefaultConsentState').wasCalled();
+    assertApi('updateConsentState').wasCalledWith(deniedUpdate);
     assertApi('gtmOnFailure').wasCalled();
     assertApi('gtmOnSuccess').wasNotCalled();
+- name: Sets only the built-in default when the banner has already started
+  code: |-
+    mock('copyFromWindow', (key) => key === 'ConsentAlly' ? {} : undefined);
+    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
+    mockData.default_analytics_storage = 'granted';
+    runCode(mockData);
+
+    assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
+    assertApi('setDefaultConsentState').wasNotCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Sets only the built-in default for a visitor with a saved choice
+  code: |-
+    mock('getCookieValues', (name) => name === 'ca_state_abcdefghijklmnop' ? ['1~saved'] : []);
+    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
+    mockData.default_analytics_storage = 'granted';
+    runCode(mockData);
+
+    assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
+    assertApi('setDefaultConsentState').wasNotCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500,
+      region: ['US']
+    });
+    assertApi('setDefaultConsentState').wasNotCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    assertApi('setInWindow').wasCalledWith('__consentallyTpl', 2, true);
+    assertThat(injected).isEqualTo('https://edge.consentally.com/k/abcdefghijklmnop');
+    assertApi('updateConsentState').wasNotCalled();
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Sets only the built-in default when a policy blocks reading the saved choice
+  code: |-
+    mock('queryPermission', (kind, mode, key) => kind !== 'get_cookies');
+    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
+    mockData.default_analytics_storage = 'granted';
+    runCode(mockData);
+
+    assertThat(cookieRead).isEqualTo(undefined);
+    assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
+    assertApi('setDefaultConsentState').wasNotCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    assertThat(injected).isEqualTo('https://edge.consentally.com/k/abcdefghijklmnop');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Denies every type before loading the shim when the page cannot be marked
+  code: |-
+    mock('setInWindow', (key, value, overrideExisting) => {
+      marked = true;
+      return false;
+    });
+    runCode(mockData);
+
+    assertApi('updateConsentState').wasCalledWith(deniedUpdate);
+    assertThat(injected).isEqualTo('https://edge.consentally.com/k/abcdefghijklmnop');
+    assertApi('gtmOnSuccess').wasCalled();
+    assertApi('gtmOnFailure').wasNotCalled();
+- name: Sets only the built-in default when a policy blocks writing the page mark
+  code: |-
+    mock('queryPermission', (kind, mode, key) => kind !== 'access_globals' || key !== '__consentallyTpl');
+    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
+    mockData.default_analytics_storage = 'granted';
+    runCode(mockData);
+
+    assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
+    assertApi('setDefaultConsentState').wasNotCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    assertApi('setInWindow').wasNotCalled();
+    assertApi('updateConsentState').wasNotCalled();
+    assertThat(injected).isEqualTo('https://edge.consentally.com/k/abcdefghijklmnop');
+    assertApi('gtmOnSuccess').wasCalled();
+- name: Sets only the built-in default when a policy blocks reading the banner's global
+  code: |-
+    let read = false;
+    mock('queryPermission', (kind, mode, key) => kind !== 'access_globals' || key !== 'ConsentAlly');
+    mock('copyFromWindow', (key) => {
+      read = true;
+      return undefined;
+    });
+    mockData.regionalDefaults = [{ region: 'US', analytics_storage: 'granted' }];
+    mockData.default_analytics_storage = 'granted';
+    runCode(mockData);
+
+    assertThat(read).isEqualTo(false);
+    assertApi('setDefaultConsentState').wasCalledWith(deniedDefaults);
+    assertApi('setDefaultConsentState').wasNotCalledWith({
+      ad_storage: 'denied',
+      ad_user_data: 'denied',
+      ad_personalization: 'denied',
+      analytics_storage: 'granted',
+      functionality_storage: 'denied',
+      personalization_storage: 'denied',
+      security_storage: 'granted',
+      wait_for_update: 500
+    });
+    assertThat(injected).isEqualTo('https://edge.consentally.com/k/abcdefghijklmnop');
+    assertApi('gtmOnSuccess').wasCalled();
 setup: |-
   let injected;
+  let cookieRead;
+  let marked = false;
+  let markedBeforeInject = false;
+  mock('setInWindow', (key, value, overrideExisting) => {
+    marked = true;
+    return true;
+  });
   mock('injectScript', (url, onSuccess, onFailure, cacheToken) => {
     injected = url;
+    markedBeforeInject = marked;
     onSuccess();
+  });
+  mock('getCookieValues', (name) => {
+    cookieRead = name;
+    return [];
   });
 
   const mockData = {
     storeKey: 'abcdefghijklmnop',
     urlPassthrough: false
+  };
+
+  const deniedDefaults = {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'denied',
+    personalization_storage: 'denied',
+    security_storage: 'granted',
+    wait_for_update: 500
+  };
+
+  const deniedUpdate = {
+    ad_storage: 'denied',
+    ad_user_data: 'denied',
+    ad_personalization: 'denied',
+    analytics_storage: 'denied',
+    functionality_storage: 'denied',
+    personalization_storage: 'denied',
+    security_storage: 'granted'
   };
 
 
